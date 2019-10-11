@@ -13,26 +13,34 @@
       overlay = document.createElement('div'),
       dataObj = player.mediainfo.customFields;
       overlay.id = 'video_overlay';
-      overlay.innerHTML = "<div id='videoOverlayInner'>"+ setHTML() +"</div>";
+      overlay.innerHTML = "<div id='video_overlay_inner'></div>";
       player.el().appendChild(overlay);
      
        function checkForOverlay() {
             if (dataObj && (dataObj.video_overlay_product_icon || dataObj.video_overlay_title || dataObj.video_overlay_subtext)) {
-              console.log("trueeee");
-
+              player.el().querySelector("#video_overlay").classList.add("overlay-fade-in");
             }
         }
        function setHTML() {
-           /*comment*/
-            if (!dataObj) {
-              return;
-            }
             var overlayHTML = '';
             overlayHTML += dataObj.video_overlay_product_icon && overlayIconList[dataObj.video_overlay_product_icon] ? "<div class='video-overlay-image-container'><img src='"+ overlayIconList[dataObj.video_overlay_product_icon] +"'/></div>" : "";
             overlayHTML += dataObj.video_overlay_title ? "<h2>"+ dataObj.video_overlay_title +"</h2>" : "";
             overlayHTML += dataObj.video_overlay_title && dataObj.video_overlay_subtext ? "<hr/>" : "";
             overlayHTML += dataObj.video_overlay_subtext ? "<p>"+ dataObj.video_overlay_subtext +"</p>" : "";
             return overlayHTML;
+        }
+     
+        myPlayer.on("firstplay", function() {
+              player.el().querySelector("#video_overlay_inner").innerHTML = setHTML();
+              checkForOverlay();
+              overlayFadeOut();
+          });
+        });
+
+        function overlayFadeOut() {
+            setTimeout(function() {
+                player.el().querySelector("#video_overlay").classList.remove("overlay-fade-in")
+            },3000)
         }
    });
 }(window.videojs));
