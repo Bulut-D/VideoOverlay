@@ -11,8 +11,8 @@
       }
       var player = this,
       overlay = document.createElement('div');
-      myPlayer.on('loadstart', function(){
-        dataObj = player.mediainfo.customFields;
+      player.on('loadstart', function(){
+        var dataObj = player.mediainfo.customFields;
         overlay.id = 'video_overlay';
         overlay.innerHTML = "<div id='video_overlay_inner'></div>";
         player.el().appendChild(overlay);
