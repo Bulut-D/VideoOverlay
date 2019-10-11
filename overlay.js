@@ -12,7 +12,7 @@
       var player = this,
       overlay = document.createElement('div');
       player.on('loadstart', function(){
-        console.log(player.mediainfo);
+        alert(player.mediainfo);
         var dataObj = player.mediainfo.customFields;
         overlay.id = 'video_overlay';
         overlay.innerHTML = "<div id='video_overlay_inner'>hello</div>";
