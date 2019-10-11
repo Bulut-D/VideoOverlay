@@ -1,3 +1,3 @@
 var player = this;
 
-console.log(player);
+window.console.log(player);
