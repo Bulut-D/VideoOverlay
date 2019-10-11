@@ -30,7 +30,7 @@
             return overlayHTML;
         }
      
-        myPlayer.on("firstplay", function() {
+        player.on("firstplay", function() {
               player.el().querySelector("#video_overlay_inner").innerHTML = setHTML();
               checkForOverlay();
               overlayFadeOut();
