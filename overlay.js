@@ -15,7 +15,7 @@
         alert(player.mediainfo);
         var dataObj = player.mediainfo.customFields;
         overlay.id = 'video_overlay';
-        overlay.innerHTML = "<div id='video_overlay_inner'>hello</div>";
+        overlay.innerHTML = "<div id='video_overlay_inner'></div>";
         player.el().appendChild(overlay);
 
          function checkForOverlay() {
