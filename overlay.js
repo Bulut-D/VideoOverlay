@@ -22,12 +22,16 @@
             }
         }
        function setHTML() {
-            var overlayHTML = '';
-            overlayHTML += dataObj.video_overlay_product_icon && overlayIconList[dataObj.video_overlay_product_icon] ? "<div class='video-overlay-image-container'><img src='"+ overlayIconList[dataObj.video_overlay_product_icon] +"'/></div>" : "";
-            overlayHTML += dataObj.video_overlay_title ? "<h2>"+ dataObj.video_overlay_title +"</h2>" : "";
-            overlayHTML += dataObj.video_overlay_title && dataObj.video_overlay_subtext ? "<hr/>" : "";
-            overlayHTML += dataObj.video_overlay_subtext ? "<p>"+ dataObj.video_overlay_subtext +"</p>" : "";
-            return overlayHTML;
+            if (dataObj) {
+              var overlayHTML = '';
+              overlayHTML += dataObj.video_overlay_product_icon && overlayIconList[dataObj.video_overlay_product_icon] ? "<div class='video-overlay-image-container'><img src='"+ overlayIconList[dataObj.video_overlay_product_icon] +"'/></div>" : "";
+              overlayHTML += dataObj.video_overlay_title ? "<h2>"+ dataObj.video_overlay_title +"</h2>" : "";
+              overlayHTML += dataObj.video_overlay_title && dataObj.video_overlay_subtext ? "<hr/>" : "";
+              overlayHTML += dataObj.video_overlay_subtext ? "<p>"+ dataObj.video_overlay_subtext +"</p>" : "";
+              return overlayHTML;
+            } else {
+              return '';
+            }
         }
      
         player.on("firstplay", function() {
