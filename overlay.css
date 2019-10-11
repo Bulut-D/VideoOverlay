@@ -11,6 +11,7 @@
     border: none;
     border-bottom: 4px solid #fff;
     max-width: 43%;
+    margin: 0 auto;
 }
 #video_overlay_inner h2 {
   margin: 0;
