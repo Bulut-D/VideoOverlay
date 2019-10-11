@@ -33,14 +33,9 @@
         player.on("firstplay", function() {
               player.el().querySelector("#video_overlay_inner").innerHTML = setHTML();
               checkForOverlay();
-              overlayFadeOut();
-          });
+              setTimeout(function() {
+                player.el().querySelector("#video_overlay").classList.remove("overlay-fade-in");
+              },3000);
         });
-
-        function overlayFadeOut() {
-            setTimeout(function() {
-                player.el().querySelector("#video_overlay").classList.remove("overlay-fade-in")
-            },3000)
-        }
    });
 }(window.videojs));
