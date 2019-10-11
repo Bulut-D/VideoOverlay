@@ -10,36 +10,38 @@
           magic_life: "https://content.tui.co.uk/adamtui/2019_10/11_9/6efe7298-251c-4e60-a3ad-aae3009d6e6b/OPTI_MAGIC_LIFE.png"
       }
       var player = this,
-      overlay = document.createElement('div'),
-      dataObj = player.mediainfo.customFields;
-      overlay.id = 'video_overlay';
-      overlay.innerHTML = "<div id='video_overlay_inner'></div>";
-      player.el().appendChild(overlay);
-     
-       function checkForOverlay() {
-            if (dataObj && (dataObj.video_overlay_product_icon || dataObj.video_overlay_title || dataObj.video_overlay_subtext)) {
-              player.el().querySelector("#video_overlay").classList.add("overlay-fade-in");
-            }
-        }
-       function setHTML() {
-            if (dataObj) {
-              var overlayHTML = '';
-              overlayHTML += dataObj.video_overlay_product_icon && overlayIconList[dataObj.video_overlay_product_icon] ? "<div class='video-overlay-image-container'><img src='"+ overlayIconList[dataObj.video_overlay_product_icon] +"'/></div>" : "";
-              overlayHTML += dataObj.video_overlay_title ? "<h2>"+ dataObj.video_overlay_title +"</h2>" : "";
-              overlayHTML += dataObj.video_overlay_title && dataObj.video_overlay_subtext ? "<hr/>" : "";
-              overlayHTML += dataObj.video_overlay_subtext ? "<p>"+ dataObj.video_overlay_subtext +"</p>" : "";
-              return overlayHTML;
-            } else {
-              return '';
-            }
-        }
-     
-        player.on("firstplay", function() {
-              player.el().querySelector("#video_overlay_inner").innerHTML = setHTML();
-              checkForOverlay();
-              setTimeout(function() {
-                player.el().querySelector("#video_overlay").classList.remove("overlay-fade-in");
-              },3000);
-        });
+      overlay = document.createElement('div');
+      myPlayer.on('loadstart', function(){
+        dataObj = player.mediainfo.customFields;
+        overlay.id = 'video_overlay';
+        overlay.innerHTML = "<div id='video_overlay_inner'></div>";
+        player.el().appendChild(overlay);
+
+         function checkForOverlay() {
+              if (dataObj && (dataObj.video_overlay_product_icon || dataObj.video_overlay_title || dataObj.video_overlay_subtext)) {
+                player.el().querySelector("#video_overlay").classList.add("overlay-fade-in");
+              }
+          }
+         function setHTML() {
+              if (dataObj) {
+                var overlayHTML = '';
+                overlayHTML += dataObj.video_overlay_product_icon && overlayIconList[dataObj.video_overlay_product_icon] ? "<div class='video-overlay-image-container'><img src='"+ overlayIconList[dataObj.video_overlay_product_icon] +"'/></div>" : "";
+                overlayHTML += dataObj.video_overlay_title ? "<h2>"+ dataObj.video_overlay_title +"</h2>" : "";
+                overlayHTML += dataObj.video_overlay_title && dataObj.video_overlay_subtext ? "<hr/>" : "";
+                overlayHTML += dataObj.video_overlay_subtext ? "<p>"+ dataObj.video_overlay_subtext +"</p>" : "";
+                return overlayHTML;
+              } else {
+                return '';
+              }
+          }
+
+          player.on("firstplay", function() {
+                player.el().querySelector("#video_overlay_inner").innerHTML = setHTML();
+                checkForOverlay();
+                setTimeout(function() {
+                  player.el().querySelector("#video_overlay").classList.remove("overlay-fade-in");
+                },3000);
+          });
+      });
    });
 }(window.videojs));
