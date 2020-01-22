@@ -659,12 +659,18 @@ nLl90GZ7b+g2sZwrAc6VYJz3a+tfNhz34g==) format('truetype');
 #video_overlay_inner h2 {
   margin: 0;
   font-size: calc(18px + (80 - 18) * ((100vw - 375px) / (1920 - 375)));
+  font-weight: 100;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding-bottom: 12px;
 }
 #video_overlay_inner p {
   text-transform: uppercase;
   font-size: calc(16px + (40 - 16) * ((100vw - 375px) / (1920 - 375)));
   margin: 16px 0 0;
   white-space: nowrap;
+  font-weight: 100;
+  letter-spacing: 4px;
 }
 .vjs-dock-text {
   display: none;
@@ -737,5 +743,8 @@ nLl90GZ7b+g2sZwrAc6VYJz3a+tfNhz34g==) format('truetype');
   }
   #video_overlay_inner hr {
     margin: 8px auto;
+  }
+  #video_overlay_inner h2 {
+    padding-bottom: 0;
   }
 }
