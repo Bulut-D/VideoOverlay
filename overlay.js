@@ -27,7 +27,7 @@
               }
           }
          function setHTML() {
-              console.log("hit 2");
+              console.log("hit 3");
               if (dataObj) {
                 var overlayHTML = '';
                 overlayHTML += dataObj.video_overlay_product_icon && overlayIconList[dataObj.video_overlay_product_icon] ? "<div class='video-overlay-image-container video-inner'><img src='"+ overlayIconList[dataObj.video_overlay_product_icon] +"'/></div>" : "";
