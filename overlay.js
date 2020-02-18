@@ -22,7 +22,7 @@
         player.el().appendChild(overlay);
 
          function checkForOverlay() {
-              if (dataObj && (dataObj.video_overlay_product_icon || dataObj.video_overlay_title || dataObj.video_overlay_subtext)) {
+              if (dataObj && (dataObj.video_overlay_product_icon || dataObj.video_overlay_title || dataObj.video_overlay_subtext) && setHTML().length > 1) {
                 player.el().querySelector("#video_overlay").classList.add("overlay-fade-in");
               }
           }
