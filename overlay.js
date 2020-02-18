@@ -43,7 +43,7 @@
           }
 
           player.on("firstplay", function() {
-                player.el().querySelector("#video_overlay_inner").innerHTML = '';
+                dataObj = player.mediainfo.customFields;
                 player.el().querySelector("#video_overlay_inner").innerHTML = setHTML();
                 checkForOverlay();
                 setTimeout(function() {
