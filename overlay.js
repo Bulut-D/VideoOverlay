@@ -22,18 +22,18 @@
         player.el().appendChild(overlay);
 
          function checkForOverlay() {
-              if (dataObj && (dataObj.video_overlay_product_icon || dataObj.video_overlay_title || dataObj.video_overlay_subtext) && setHTML().length > 1) {
+              if (dataObj && (dataObj.video_overlay_product_icon || dataObj.video_overlay_title || dataObj.video_overlay_subtext) && player.el().querySelector(".video-inner")) {
                 player.el().querySelector("#video_overlay").classList.add("overlay-fade-in");
               }
           }
          function setHTML() {
-              console.log("hit");
+              console.log("hit 2");
               if (dataObj) {
                 var overlayHTML = '';
-                overlayHTML += dataObj.video_overlay_product_icon && overlayIconList[dataObj.video_overlay_product_icon] ? "<div class='video-overlay-image-container'><img src='"+ overlayIconList[dataObj.video_overlay_product_icon] +"'/></div>" : "";
-                overlayHTML += dataObj.video_overlay_title ? "<h2>"+ dataObj.video_overlay_title +"</h2>" : "";
+                overlayHTML += dataObj.video_overlay_product_icon && overlayIconList[dataObj.video_overlay_product_icon] ? "<div class='video-overlay-image-container video-inner'><img src='"+ overlayIconList[dataObj.video_overlay_product_icon] +"'/></div>" : "";
+                overlayHTML += dataObj.video_overlay_title ? "<h2 class='video-inner'>"+ dataObj.video_overlay_title +"</h2>" : "";
                 overlayHTML += dataObj.video_overlay_title && dataObj.video_overlay_subtext ? "<hr/>" : "";
-                overlayHTML += dataObj.video_overlay_subtext ? "<p>"+ dataObj.video_overlay_subtext +"</p>" : "";
+                overlayHTML += dataObj.video_overlay_subtext ? "<p class='video-inner'>"+ dataObj.video_overlay_subtext +"</p>" : "";
                 return overlayHTML;
               } else {
                 return '';
