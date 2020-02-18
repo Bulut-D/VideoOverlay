@@ -22,14 +22,12 @@
         player.el().appendChild(overlay);
 
          function checkForOverlay() {
-              console.log(setHTML().length);
-              console.log(setHTML());
-              if (dataObj && (dataObj.video_overlay_product_icon || dataObj.video_overlay_title || dataObj.video_overlay_subtext) && player.el().querySelector(".video-inner")) {
+              if (dataObj && (dataObj.video_overlay_product_icon || dataObj.video_overlay_title || dataObj.video_overlay_subtext)) {
                 player.el().querySelector("#video_overlay").classList.add("overlay-fade-in");
               }
           }
          function setHTML() {
-              console.log("hit 6");
+              console.log("hit 7");
               if (dataObj) {
                 var overlayHTML = '';
                 overlayHTML += dataObj.video_overlay_product_icon && overlayIconList[dataObj.video_overlay_product_icon] ? "<div class='video-overlay-image-container video-inner'><img src='"+ overlayIconList[dataObj.video_overlay_product_icon] +"'/></div>" : "";
