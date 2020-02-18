@@ -23,6 +23,7 @@
 
          function checkForOverlay() {
               console.log(setHTML().length);
+              console.log(setHTML());
               if (dataObj && (dataObj.video_overlay_product_icon || dataObj.video_overlay_title || dataObj.video_overlay_subtext) && player.el().querySelector(".video-inner")) {
                 player.el().querySelector("#video_overlay").classList.add("overlay-fade-in");
               }
