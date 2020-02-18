@@ -22,12 +22,13 @@
         player.el().appendChild(overlay);
 
          function checkForOverlay() {
+              console.log(setHTML().length);
               if (dataObj && (dataObj.video_overlay_product_icon || dataObj.video_overlay_title || dataObj.video_overlay_subtext) && player.el().querySelector(".video-inner")) {
                 player.el().querySelector("#video_overlay").classList.add("overlay-fade-in");
               }
           }
          function setHTML() {
-              console.log("hit 3");
+              console.log("hit 4");
               if (dataObj) {
                 var overlayHTML = '';
                 overlayHTML += dataObj.video_overlay_product_icon && overlayIconList[dataObj.video_overlay_product_icon] ? "<div class='video-overlay-image-container video-inner'><img src='"+ overlayIconList[dataObj.video_overlay_product_icon] +"'/></div>" : "";
