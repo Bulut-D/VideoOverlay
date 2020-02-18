@@ -29,7 +29,7 @@
               }
           }
          function setHTML() {
-              console.log("hit 5");
+              console.log("hit 6");
               if (dataObj) {
                 var overlayHTML = '';
                 overlayHTML += dataObj.video_overlay_product_icon && overlayIconList[dataObj.video_overlay_product_icon] ? "<div class='video-overlay-image-container video-inner'><img src='"+ overlayIconList[dataObj.video_overlay_product_icon] +"'/></div>" : "";
@@ -43,6 +43,7 @@
           }
 
           player.on("firstplay", function() {
+                player.el().querySelector("#video_overlay_inner").innerHTML = '';
                 player.el().querySelector("#video_overlay_inner").innerHTML = setHTML();
                 checkForOverlay();
                 setTimeout(function() {
