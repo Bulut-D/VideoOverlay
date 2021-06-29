@@ -40,7 +40,7 @@
           }
 
           player.on("firstplay", function() {
-                dataObj = player.mediainfo.customFields;
+                dataObj = player.catalog.getMetadata({lang: player.language()}).customFields;
                 player.el().querySelector("#video_overlay_inner").innerHTML = setHTML();
                 checkForOverlay();
                 setTimeout(function() {
